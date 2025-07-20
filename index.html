@@ -2,8 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gaspin - Real-Time Gas Prices Near You</title>
+<meta property="og:image" content="https://yourusername.github.io/gaspin/Favicon.png" />
+
+
+  <!-- 🔍 SEO Meta Tags -->
+  <meta name="description" content="Gaspin helps you find the cheapest and nearest real-time gas prices around your location instantly.">
+  <meta name="keywords" content="gas prices near me, fuel finder, gaspin, petrol station, real-time fuel prices">
+  <meta name="author" content="Gaspin Team">
+  <meta name="robots" content="index, follow">
+
+  <!-- 🔗 Open Graph Tags -->
+  <meta property="og:title" content="Gaspin - Real-Time Gas Prices Near You" />
+  <meta property="og:description" content="Find fuel prices near you instantly with Gaspin. Accurate, fast, and free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourusername.github.io/gaspin/" />
+  <meta property="og:image" content="https://yourusername.github.io/gaspin/gaspin-cover.png" />
+
+  <!-- 🔖 Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- 🎨 CSS Styles -->
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -117,43 +137,54 @@
     &copy; 2025 Gaspin. Powered by real-time location.
   </footer>
 
+  <!-- 🚀 JavaScript -->
   <script>
     async function getGasPrices() {
       const resultsDiv = document.getElementById('results');
       resultsDiv.innerHTML = "📍 Locating you and fetching gas prices...";
 
       if (!navigator.geolocation) {
-        resultsDiv.innerHTML = "❌ Geolocation not supported by your browser.";
+        resultsDiv.innerHTML = "❌ Geolocation is not supported by your browser.";
         return;
       }
 
-      navigator.geolocation.getCurrentPosition(async (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
 
-        // 🛑 Replace this dummy data with a real API later
-        const dummyStations = [
-          { name: "LankaFuel Kandy", price: "Rs. 540/L", distance: "1.2 km", lat: 7.2906, lon: 80.6337 },
-          { name: "Ceypetco Katugastota", price: "Rs. 538/L", distance: "2.0 km", lat: 7.3302, lon: 80.6100 },
-          { name: "PetroMax Station", price: "Rs. 545/L", distance: "2.5 km", lat: 7.3000, lon: 80.6500 }
-        ];
+          // 🛢️ Replace this with real API in the future
+          const dummyStations = [
+            { name: "LankaFuel Kandy", price: "Rs. 540/L", distance: "1.2 km", lat: 7.2906, lon: 80.6337 },
+            { name: "Ceypetco Katugastota", price: "Rs. 538/L", distance: "2.0 km", lat: 7.3302, lon: 80.6100 },
+            { name: "PetroMax Station", price: "Rs. 545/L", distance: "2.5 km", lat: 7.3000, lon: 80.6500 }
+          ];
 
-        resultsDiv.innerHTML = "";
-        dummyStations.forEach(station => {
-          const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${station.lat},${station.lon}`;
-          resultsDiv.innerHTML += `
-            <div class="station">
-              <strong>${station.name}</strong><br>
-              Price: <span style="color:green">${station.price}</span><br>
-              Distance: ${station.distance}<br>
-              <a class="btn-direction" href="${mapLink}" target="_blank">📍 Get Directions</a>
-            </div>
-          `;
-        });
-
-      }, () => {
-        resultsDiv.innerHTML = "⚠️ Unable to retrieve your location.";
-      });
+          resultsDiv.innerHTML = "";
+          dummyStations.forEach(station => {
+            const mapLink = `https://www.google.com/maps/dir/?api=1&destination=${station.lat},${station.lon}`;
+            resultsDiv.innerHTML += `
+              <div class="station">
+                <strong>${station.name}</strong><br>
+                Price: <span style="color:green">${station.price}</span><br>
+                Distance: ${station.distance}<br>
+                <a class="btn-direction" href="${mapLink}" target="_blank">📍 Get Directions</a>
+              </div>
+            `;
+          });
+        },
+        (error) => {
+          let message = "⚠️ Unable to retrieve your location.";
+          if (error.code === 1) {
+            message = "❌ Location access denied. Please allow it in your browser.";
+          } else if (error.code === 2) {
+            message = "❌ Location unavailable. Try again later.";
+          } else if (error.code === 3) {
+            message = "❌ Location request timed out.";
+          }
+          resultsDiv.innerHTML = message;
+        }
+      );
     }
   </script>
 
