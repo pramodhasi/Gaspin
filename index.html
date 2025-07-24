@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gaspin.live - Real-Time Gas Prices Near You</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_API_KEY&libraries=places"></script>
+</head>
+<body>
+  <header>
+    <h1>⛽ Gaspin.live</h1>
+    <p>Find Real-Time Gas Prices Near You</p>
+    <div id="google_translate_element"></div>
+  </header>
+
+  <main>
+    <button onclick="findNearbyGasStations()">Check Gas Price Near Me</button>
+    <div id="stations"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Gaspin.live | <a href="update.html">Gas Station Owner Login</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
