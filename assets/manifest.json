@@ -1,0 +1,85 @@
+{
+    "name": "Gaspin.live - Real-Time Gas Price Finder",
+    "short_name": "Gaspin.live",
+    "description": "Find real-time gas prices near you. Compare fuel costs at nearby gas stations and save money on every fill-up.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "dir": "ltr",
+    "categories": ["utilities", "travel", "navigation"],
+    "icons": [
+        {
+            "src": "images/favicon.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshot-mobile.png",
+            "sizes": "390x844",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Mobile view of gas price finder"
+        },
+        {
+            "src": "images/screenshot-desktop.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Desktop view of gas price finder"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Find Gas Prices",
+            "short_name": "Find Gas",
+            "description": "Quickly find gas prices near your location",
+            "url": "/?action=find",
+            "icons": [
+                {
+                    "src": "images/favicon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Station Owner Portal",
+            "short_name": "Owner Portal",
+            "description": "Access the station owner management portal",
+            "url": "/admin",
+            "icons": [
+                {
+                    "src": "images/favicon.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    }
+}
+

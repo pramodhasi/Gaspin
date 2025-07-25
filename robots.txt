@@ -1,0 +1,81 @@
+# Robots.txt for Gaspin.live
+# Gas Price Finder Website
+
+User-agent: *
+Allow: /
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+
+# Disallow admin areas and private content
+Disallow: /admin
+Disallow: /admin/
+Disallow: /admin.html
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /api/private/
+
+# Allow specific files
+Allow: /sitemap.xml
+Allow: /manifest.json
+Allow: /favicon.ico
+Allow: /assets/images/favicon.png
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://gaspin.live/sitemap.xml
+
+# Special instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Block AI training bots (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
