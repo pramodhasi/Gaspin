@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="admin_page_title">Gas Station Owner Portal | Gaspin.live</title>
+    <meta name="description" data-translate="admin_page_description" content="Update your gas station information, fuel prices, and amenities on Gaspin.live. Manage your station's visibility and attract more customers.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/favicon.png" alt="Gaspin.live" class="logo-icon">
+                    <span class="logo-text">Gaspin.live</span>
+                    <span class="admin-badge" data-translate="admin_portal">Admin Portal</span>
+                </div>
+                
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <select id="languageSelect" class="language-select">
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="it">Italiano</option>
+                            <option value="pt">Português</option>
+                            <option value="ru">Русский</option>
+                            <option value="zh">中文</option>
+                            <option value="ja">日本語</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                    </div>
+                    
+                    <a href="index.html" class="back-to-site">
+                        <i class="fas fa-arrow-left"></i>
+                        <span data-translate="back_to_site">Back to Site</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="container">
+            <!-- Welcome Section -->
+            <section class="admin-welcome">
+                <h1 data-translate="admin_welcome_title">Welcome to Gas Station Owner Portal</h1>
+                <p data-translate="admin_welcome_desc">Manage your gas station information, update fuel prices, and attract more customers to your location.</p>
+            </section>
+
+            <!-- Login/Registration Section -->
+            <section id="authSection" class="auth-section">
+                <div class="auth-container">
+                    <div class="auth-tabs">
+                        <button id="loginTab" class="auth-tab active" data-translate="login">Login</button>
+                        <button id="registerTab" class="auth-tab" data-translate="register">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form">
+                        <h2 data-translate="login_title">Login to Your Account</h2>
+                        <div class="form-group">
+                            <label for="loginEmail" data-translate="email">Email Address</label>
+                            <input type="email" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword" data-translate="password">Password</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="auth-btn" data-translate="login_btn">Login</button>
+                        <a href="#" class="forgot-password" data-translate="forgot_password">Forgot Password?</a>
+                    </form>
+
+                    <!-- Registration Form -->
+                    <form id="registerForm" class="auth-form hidden">
+                        <h2 data-translate="register_title">Register Your Gas Station</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stationName" data-translate="station_name">Station Name</label>
+                                <input type="text" id="stationName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ownerName" data-translate="owner_name">Owner Name</label>
+                                <input type="text" id="ownerName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail" data-translate="email">Email Address</label>
+                            <input type="email" id="registerEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-translate="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" data-translate="address">Station Address</label>
+                            <textarea id="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="registerPassword" data-translate="password">Password</label>
+                                <input type="password" id="registerPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword" data-translate="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirmPassword" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="auth-btn" data-translate="register_btn">Register Station</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Dashboard Section (Hidden by default) -->
+            <section id="dashboardSection" class="dashboard-section hidden">
+                <div class="dashboard-header">
+                    <h2 data-translate="dashboard_title">Station Dashboard</h2>
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span data-translate="logout">Logout</span>
+                    </button>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Station Information Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 data-translate="station_info">Station Information</h3>
+                            <button class="edit-btn" onclick="adminApp.editStationInfo()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div id="stationInfoDisplay" class="station-info-display">
+                            <!-- Station info will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Fuel Prices Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 data-translate="fuel_prices">Fuel Prices</h3>
+                            <button class="edit-btn" onclick="adminApp.editFuelPrices()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div id="fuelPricesDisplay" class="fuel-prices-display">
+                            <!-- Fuel prices will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Amenities Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 data-translate="amenities">Amenities & Services</h3>
+                            <button class="edit-btn" onclick="adminApp.editAmenities()">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                        <div id="amenitiesDisplay" class="amenities-display">
+                            <!-- Amenities will be populated here -->
+                        </div>
+                    </div>
+
+                    <!-- Statistics Card -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 data-translate="statistics">Statistics</h3>
+                        </div>
+                        <div class="statistics-display">
+                            <div class="stat-item">
+                                <div class="stat-value">1,247</div>
+                                <div class="stat-label" data-translate="monthly_views">Monthly Views</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">89</div>
+                                <div class="stat-label" data-translate="directions_requested">Directions Requested</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">34</div>
+                                <div class="stat-label" data-translate="phone_calls">Phone Calls</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Edit Station Info Modal -->
+    <div id="stationInfoModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="edit_station_info">Edit Station Information</h3>
+                <button class="modal-close" onclick="adminApp.closeModal('stationInfoModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="stationInfoForm" class="modal-form">
+                <div class="form-group">
+                    <label for="editStationName" data-translate="station_name">Station Name</label>
+                    <input type="text" id="editStationName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editAddress" data-translate="address">Address</label>
+                    <textarea id="editAddress" rows="3" required></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editPhone" data-translate="phone">Phone Number</label>
+                        <input type="tel" id="editPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editHours" data-translate="operating_hours">Operating Hours</label>
+                        <select id="editHours">
+                            <option value="24/7">24/7</option>
+                            <option value="6:00 AM - 10:00 PM">6:00 AM - 10:00 PM</option>
+                            <option value="5:00 AM - 11:00 PM">5:00 AM - 11:00 PM</option>
+                            <option value="custom">Custom Hours</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="adminApp.closeModal('stationInfoModal')" data-translate="cancel">Cancel</button>
+                    <button type="submit" class="btn-save" data-translate="save_changes">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Fuel Prices Modal -->
+    <div id="fuelPricesModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="edit_fuel_prices">Edit Fuel Prices</h3>
+                <button class="modal-close" onclick="adminApp.closeModal('fuelPricesModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="fuelPricesForm" class="modal-form">
+                <div class="price-inputs">
+                    <div class="form-group">
+                        <label for="regularPrice" data-translate="regular_price">Regular Price</label>
+                        <div class="price-input">
+                            <span class="currency">$</span>
+                            <input type="number" id="regularPrice" step="0.01" min="0" required>
+                            <span class="unit">/gal</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="premiumPrice" data-translate="premium_price">Premium Price</label>
+                        <div class="price-input">
+                            <span class="currency">$</span>
+                            <input type="number" id="premiumPrice" step="0.01" min="0" required>
+                            <span class="unit">/gal</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dieselPrice" data-translate="diesel_price">Diesel Price</label>
+                        <div class="price-input">
+                            <span class="currency">$</span>
+                            <input type="number" id="dieselPrice" step="0.01" min="0" required>
+                            <span class="unit">/gal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-update-note">
+                    <i class="fas fa-info-circle"></i>
+                    <span data-translate="price_update_note">Prices will be updated immediately and visible to all users.</span>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="adminApp.closeModal('fuelPricesModal')" data-translate="cancel">Cancel</button>
+                    <button type="submit" class="btn-save" data-translate="update_prices">Update Prices</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Amenities Modal -->
+    <div id="amenitiesModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-translate="edit_amenities">Edit Amenities & Services</h3>
+                <button class="modal-close" onclick="adminApp.closeModal('amenitiesModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="amenitiesForm" class="modal-form">
+                <div class="amenities-grid">
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="evCharging">
+                        <span class="checkmark"></span>
+                        <span data-translate="ev_charging_station">EV Charging Station</span>
+                    </label>
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="carWash">
+                        <span class="checkmark"></span>
+                        <span data-translate="car_wash">Car Wash</span>
+                    </label>
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="convenience">
+                        <span class="checkmark"></span>
+                        <span data-translate="convenience_store">Convenience Store</span>
+                    </label>
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="restroom">
+                        <span class="checkmark"></span>
+                        <span data-translate="restroom">Restroom</span>
+                    </label>
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="atm">
+                        <span class="checkmark"></span>
+                        <span data-translate="atm">ATM</span>
+                    </label>
+                    <label class="amenity-checkbox">
+                        <input type="checkbox" id="airPump">
+                        <span class="checkmark"></span>
+                        <span data-translate="air_pump">Air Pump</span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="adminApp.closeModal('amenitiesModal')" data-translate="cancel">Cancel</button>
+                    <button type="submit" class="btn-save" data-translate="save_changes">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Gaspin.live</h3>
+                    <p data-translate="footer_desc">Your trusted source for real-time gas prices worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer_support_title">Support</h4>
+                    <ul>
+                        <li><a href="#" data-translate="footer_help">Help Center</a></li>
+                        <li><a href="#" data-translate="footer_contact">Contact Support</a></li>
+                        <li><a href="#" data-translate="footer_faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaspin.live. <span data-translate="footer_rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
+
