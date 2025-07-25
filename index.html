@@ -3,121 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-translate="page_title">Find Real-Time Gas Prices Near You | Gaspin.live</title>
-    <meta name="description" data-translate="page_description" content="Find the cheapest gas stations near you with real-time fuel prices. Compare gasoline, diesel, and premium fuel costs at nearby stations.">
+    <title>Gaspin.live - Find Real-Time Gas Prices Near You | Cheapest Fuel Prices & EV Charging Stations</title>
+    <meta name="description" content="Find the cheapest gas prices near you in real-time. Compare fuel prices from gas stations worldwide, locate EV charging stations, and save money on gasoline, diesel, and more.">
+    <meta name="keywords" content="gas prices, fuel prices, gas stations, EV charging, real-time prices, gasoline, diesel, cheapest gas, fuel finder, gas station locator, electric vehicle charging">
+    <meta name="author" content="Gaspin.live">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://gaspin.live/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Gaspin.live - Find Real-Time Gas Prices Near You">
+    <meta property="og:description" content="Find the cheapest gas prices near you in real-time. Compare fuel prices, locate gas stations, and find EV charging stations worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gaspin.live">
+    <meta property="og:image" content="https://gaspin.live/favicon.png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:site_name" content="Gaspin.live">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gaspin.live - Find Real-Time Gas Prices Near You">
+    <meta name="twitter:description" content="Find the cheapest gas prices near you in real-time. Compare fuel prices, locate gas stations, and find EV charging stations worldwide.">
+    <meta name="twitter:image" content="https://gaspin.live/favicon.png">
+    <meta name="twitter:site" content="@gaspinlive">
+    <meta name="twitter:creator" content="@gaspinlive">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    <meta name="geo.position" content="39.8283;-98.5795">
+    <meta name="ICBM" content="39.8283, -98.5795">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Gaspin.live">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="styles.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://api.collectapi.com">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Maps API -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
+    
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Gaspin.live",
+        "alternateName": "Gaspin",
+        "url": "https://gaspin.live",
+        "description": "Find real-time gas prices and EV charging stations near you",
+        "inLanguage": "en-US",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://gaspin.live/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Gaspin.live",
+            "url": "https://gaspin.live",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://gaspin.live/favicon.png",
+                "width": 512,
+                "height": 512
+            }
+        }
+    }
+    </script>
+    
+    <!-- Structured Data - LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Gaspin.live",
+        "description": "Real-time gas price finder and EV charging station locator",
+        "url": "https://gaspin.live",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Real-time gas prices",
+            "Gas station locator",
+            "EV charging station finder",
+            "Fuel price comparison",
+            "Google Maps integration",
+            "Mobile responsive design"
+        ],
+        "screenshot": "https://gaspin.live/favicon.png"
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://gaspin.live/"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Loading Overlay -->
-    <div id="loadingOverlay" class="loading-overlay">
-        <div class="loading-spinner">
-            <i class="fas fa-gas-pump"></i>
-            <p data-translate="loading">Loading...</p>
-        </div>
-    </div>
-
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="assets/images/favicon.png" alt="Gaspin.live" class="logo-icon">
-                    <span class="logo-text">Gaspin.live</span>
-                </div>
-                
-                <!-- Language Selector -->
-                <div class="language-selector">
-                    <select id="languageSelect" class="language-select">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="it">Italiano</option>
-                        <option value="pt">Português</option>
-                        <option value="ru">Русский</option>
-                        <option value="zh">中文</option>
-                        <option value="ja">日本語</option>
-                        <option value="ar">العربية</option>
-                    </select>
-                </div>
+            <div class="logo">
+                <h1>⛽ Gaspin.live</h1>
+                <span class="tagline">Real-Time Gas Prices</span>
             </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="admin.html" class="nav-link">Station Owner</a>
+            </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="main">
-        <div class="container">
-            <!-- Hero Section -->
-            <section class="hero">
-                <h1 data-translate="hero_title">Find Real-Time Gas Prices Near You</h1>
-                <p data-translate="hero_subtitle">Compare fuel prices at nearby gas stations and save money on every fill-up</p>
-                
-                <!-- Search Button -->
-                <button id="findGasBtn" class="find-gas-btn">
-                    <i class="fas fa-search-location"></i>
-                    <span data-translate="find_gas_btn">Check Gas Prices Near Me</span>
-                </button>
-                
-                <!-- Location Status -->
-                <div id="locationStatus" class="location-status hidden">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span id="locationText" data-translate="getting_location">Getting your location...</span>
-                </div>
-            </section>
-
-            <!-- Gas Stations Results -->
-            <section id="gasStationsSection" class="gas-stations-section hidden">
-                <h2 data-translate="nearby_stations">Nearby Gas Stations</h2>
-                <div id="gasStationsList" class="gas-stations-list">
-                    <!-- Gas stations will be populated here -->
-                </div>
-            </section>
-
-            <!-- Map Section -->
-            <section id="mapSection" class="map-section hidden">
-                <h2 data-translate="map_title">Gas Stations Map</h2>
-                <div id="map" class="map-container"></div>
-            </section>
-
-            <!-- Features Section -->
-            <section class="features">
-                <h2 data-translate="features_title">Why Choose Gaspin.live?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-clock"></i>
-                        <h3 data-translate="feature_realtime_title">Real-Time Prices</h3>
-                        <p data-translate="feature_realtime_desc">Get up-to-date fuel prices from gas stations in your area</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-map-marked-alt"></i>
-                        <h3 data-translate="feature_location_title">Location-Based</h3>
-                        <p data-translate="feature_location_desc">Find the closest gas stations based on your current location</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-bolt"></i>
-                        <h3 data-translate="feature_ev_title">EV Charging</h3>
-                        <p data-translate="feature_ev_desc">Discover stations with electric vehicle charging facilities</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-globe"></i>
-                        <h3 data-translate="feature_multilingual_title">Multilingual</h3>
-                        <p data-translate="feature_multilingual_desc">Available in multiple languages for users worldwide</p>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-title">Find Real-Time Gas Prices Near You</h2>
+                    <p class="hero-description">
+                        Compare fuel prices from gas stations worldwide. Find the cheapest gas, diesel, and EV charging stations in your area with accurate, up-to-date pricing information.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" id="findGasBtn">
+                            📍 Check Gas Prices Near Me
+                        </button>
+                        <div class="location-input">
+                            <input type="text" id="locationInput" placeholder="Enter city or ZIP code" class="location-field">
+                            <button class="btn btn-secondary" id="searchLocationBtn">Search</button>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section class="loading-section" id="loadingSection" style="display: none;">
+            <div class="container">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <p>Finding gas stations near you...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="container">
+                <h3 class="results-title">Gas Stations Near You</h3>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Gas station results will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section" id="mapSection" style="display: none;">
+            <div class="container">
+                <h3 class="map-title">Station Locations</h3>
+                <div class="map-container">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <h3 class="about-title">About Gaspin.live</h3>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <div class="about-icon">🌍</div>
+                            <h4>Global Coverage</h4>
+                            <p>Access real-time fuel prices from gas stations worldwide, including the USA, Canada, Europe, Australia, and more.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">⚡</div>
+                            <h4>EV Charging Stations</h4>
+                            <p>Find electric vehicle charging stations with real-time availability, connector types, and charging speeds.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">💰</div>
+                            <h4>Best Prices</h4>
+                            <p>Compare prices for regular, premium, diesel, and other fuel types to find the best deals in your area.</p>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-icon">🗺️</div>
+                            <h4>Easy Navigation</h4>
+                            <p>Get directions to any gas station with integrated Google Maps and real-time traffic information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -125,39 +240,32 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Gaspin.live</h3>
-                    <p data-translate="footer_desc">Your trusted source for real-time gas prices worldwide</p>
+                    <h4>Gaspin.live</h4>
+                    <p>Your trusted source for real-time gas prices and EV charging station information worldwide.</p>
                 </div>
                 <div class="footer-section">
-                    <h4 data-translate="footer_links_title">Quick Links</h4>
-                    <ul>
-                        <li><a href="#" data-translate="footer_about">About Us</a></li>
-                        <li><a href="admin.html" data-translate="footer_admin">Station Owner Portal</a></li>
-                        <li><a href="#" data-translate="footer_contact">Contact</a></li>
-                        <li><a href="#" data-translate="footer_privacy">Privacy Policy</a></li>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="admin.html">Station Owners</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4 data-translate="footer_support_title">Support</h4>
-                    <ul>
-                        <li><a href="#" data-translate="footer_help">Help Center</a></li>
-                        <li><a href="#" data-translate="footer_faq">FAQ</a></li>
-                        <li><a href="#" data-translate="footer_report">Report Issue</a></li>
-                    </ul>
+                    <h4>Contact</h4>
+                    <p>Email: info@gaspin.live</p>
+                    <p>Support: support@gaspin.live</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Gaspin.live. <span data-translate="footer_rights">All rights reserved.</span></p>
+                <p>&copy; 2025 Gaspin.live. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/app.js"></script>
-    
-    <!-- Google Maps API (Replace YOUR_API_KEY with actual API key) -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places&callback=initMap"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 
